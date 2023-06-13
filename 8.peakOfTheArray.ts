@@ -1,4 +1,4 @@
-const { question } = require("readline-sync");
+import { question } from "readline-sync";
 
 // Find the peak (maximum) in the Bitonic array.
 // Example bitonic array: [1, 2, 3, 4, 3, 2] (assume no duplicates will occur)
