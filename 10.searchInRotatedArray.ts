@@ -1,8 +1,7 @@
 // rotated array:- [3, 4, 5, 6, 0, 1, 2]
-
 import { question } from "readline-sync";
 
-function getIndexOfTargetFromBS(
+export function getIndexOfTargetFromBS(
   arr: number[],
   target: number,
   start: number,
@@ -24,12 +23,11 @@ function getIndexOfTargetFromBS(
   return -1;
 }
 
-function findMiddleElementInRotatedArray(arr: number[]): number {
+export function findPivotElementInRotatedArray(arr: number[]): number {
   let start = 0,
     end = arr.length - 1,
     mid: number;
 
-  console.log({ start, end });
   while (start <= end) {
     mid = Math.floor((start + end) / 2);
 
@@ -40,13 +38,12 @@ function findMiddleElementInRotatedArray(arr: number[]): number {
     } else {
       start = mid + 1;
     }
-    console.log({ start, end, mid, midEl: arr[mid] });
   }
   return -1;
 }
 
-function searchInRotatedArray(arr: number[], target: number): number {
-  const pivot = findMiddleElementInRotatedArray(rotatedArr);
+export function searchInRotatedArray(arr: number[], target: number): number {
+  const pivot = findPivotElementInRotatedArray(arr);
   console.log({ pivot });
 
   const firstPart = { start: 0, end: pivot };
