@@ -17,7 +17,7 @@ const ceiling = (arr: number[], target: number): number => {
 };
 
 const given_list = [1, 4, 6, 8, 9, 16, 34, 35, 56, 97, 105];
-const target = 230;
+const target = 23;
 
 const closest_ceiling = ceiling(given_list, target);
 console.log("===result:", closest_ceiling ?? "Not found");
