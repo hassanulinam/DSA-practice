@@ -2,7 +2,7 @@ import { question } from "readline-sync";
 
 function findIndexInMatrix(
   matrix: number[][],
-  target: number
+  target: number,
 ): [number, number] {
   let row = 0,
     col = matrix.length - 1;

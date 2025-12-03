@@ -1,9 +1,15 @@
 {
   "devDependencies": {
-    "@types/node": "^20.19.25"
+    "@types/node": "22",
+    "@types/readline-sync": "^1.4.8"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
   },
-  "packageManager": "pnpm"
+  "packageManager": "pnpm@10.24.0",
+  "type": "module",
+  "engineStrict": true,
+  "engines": {
+    "node": "v22"
+  }
 }
