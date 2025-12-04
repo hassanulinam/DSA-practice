@@ -2,20 +2,11 @@
 
 arr = list(map(int, input("Enter arr: ").split()))
 N = len(arr)
+current_sum = arr[0]
+max_sum = current_sum
 
-sub_array_start_index = 0
-ps = None
-
-current_sum = 0
-max_sum = 0
-for i in range(N):
-    current_sum += arr[i]
-    if current_sum > max_sum:
-        max_sum = current_sum
-        ps = (sub_array_start_index, i)
-    if current_sum < 0:
-        current_sum = 0
-        sub_array_start_index = i + 1
+for i in range(1, N):
+    current_sum = max(arr[i], current_sum + arr[i])
+    max_sum = max(current_sum, max_sum)
 
 print(max_sum)
-print(ps)
