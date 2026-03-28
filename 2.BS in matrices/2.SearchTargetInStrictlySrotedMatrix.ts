@@ -3,7 +3,7 @@ import { question } from "readline-sync";
 function BSInGivenRowOfMatrix(
   matrix: number[][],
   target: number,
-  row: number
+  row: number,
 ): [number, number] {
   let start = 0,
     end = matrix[row].length - 1;
@@ -24,7 +24,7 @@ function BSInGivenRowOfMatrix(
 
 function searchInStrictlySortedMatrix(
   matrix: number[][],
-  target: number
+  target: number,
 ): [number, number] {
   const rows = matrix.length,
     cols = matrix[0].length;

@@ -1,0 +1,1 @@
+sentence = input("Enter sentence: ")
