@@ -1,24 +1,7 @@
 from collections import deque
 from typing import Optional
 
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left: Optional[TreeNode] = left
-        self.right: Optional[TreeNode] = right
-
-
-def build_tree(arr: list[int], i: int) -> Optional[TreeNode]:
-    if i >= len(arr) or arr[i] is None:
-        return None
-
-    root = TreeNode(arr[i])
-
-    root.left = build_tree(arr, 2 * i + 1)
-    root.right = build_tree(arr, 2 * i + 2)
-
-    return root
+from tree_commons import TreeNode, build_tree
 
 
 def pre_order(tree: TreeNode) -> list[int]:
@@ -147,6 +130,19 @@ def invert_tree_top_down(node: Optional[TreeNode]) -> None:
     node.left, node.right = node.right, node.left
     invert_tree_top_down(node.left)
     invert_tree_top_down(node.right)
+
+
+def is_mirror(a: Optional[TreeNode], b: Optional[TreeNode]) -> bool:
+    if not a and not b:
+        return True
+
+    if not a or not b:
+        return False
+
+    if a.val != b.val:
+        return False
+
+    return is_mirror(a.left, b.right) and is_mirror(a.right, b.left)
 
 
 def __main__():
