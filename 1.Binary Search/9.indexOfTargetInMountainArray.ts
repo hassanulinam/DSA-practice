@@ -4,7 +4,7 @@ function orderAgnosticBS(
   arr: number[],
   target: number,
   start: number,
-  end: number
+  end: number,
 ): number {
   let mid: number;
   const isAsc = arr[start] < arr[end];
@@ -41,21 +41,23 @@ function getPeakIndexInMountain(arr: number[]): number {
     end = arr.length - 1,
     mid: number;
 
-  while (start < end) {
+  while (start <= end) {
     mid = Math.floor((start + end) / 2);
 
     if (arr[mid] > arr[mid + 1]) {
-      end = mid;
+      return mid;
+    } else if (arr[start] > arr[mid]) {
+      end = mid - 1;
     } else {
       start = mid + 1;
     }
   }
-  console.log({ start, end });
-  return start;
+  return -1;
 }
 
 function searchTargetInMountain(arr: number[], target: number): number {
   const peak = getPeakIndexInMountain(arr);
+  console.log({ peak });
 
   // search in increasing part
   const indexInIncreasingPart = orderAgnosticBS(arr, target, 0, peak);
