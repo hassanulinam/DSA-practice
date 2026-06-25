@@ -4,7 +4,7 @@ def get_digits_list(n: int) -> list[int]:
         d = n % 10
         n //= 10
         digs.append(d)
-    return digs
+    return digs[::-1]
 
 
 def get_reverse(n: int) -> int:
@@ -31,7 +31,7 @@ def is_armstrong(n: int) -> bool:
 
 
 n = int(input("Enter N: "))
-print("Digits:", get_digits_list(n))
+print("Digits:", *get_digits_list(n))
 print("Reversed:", get_reverse(n))
 print("Is Palindrome:", is_palindrome(n))
 print("Is Armstrong:", is_armstrong(n))

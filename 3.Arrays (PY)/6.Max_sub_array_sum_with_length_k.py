@@ -1,6 +1,5 @@
 # Sliding window technique
 
-
 arr = [int(x) for x in input("Enter arr: ").split()]
 k = int(input("Enter K: "))
 N = len(arr)

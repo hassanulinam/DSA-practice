@@ -10,14 +10,14 @@ class ListNode:
         self.next = next
 
 
-def reverseLinkedList(head: ListNode) -> Optional[ListNode]:
+def reverseLinkedList(head: ListNode) -> tuple[ListNode, ListNode]:
     if head.next is None:
-        return head
-    prev = head
+        return (head, head)
     next = head.next
     head.next = None
-    reverseLinkedList(next)
-    head.next = prev
+    reversed, last_node = reverseLinkedList(next)
+    reversed.next = head
+    return head, last_node
 
 
 def printLinkedList(head: ListNode):
@@ -38,11 +38,11 @@ for el in lst[1:]:
 
 print("Given linked list:")
 printLinkedList(head)
-print("Reversed list:")
-rev = reverseLinkedList(head)
+print("\nReversed list:")
+_, rev = reverseLinkedList(head)
 # printLinkedList(head)
 
 if rev:
-    printLinkedList(head)
+    printLinkedList(rev)
 else:
     print("Reversed list not found")

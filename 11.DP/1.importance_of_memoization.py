@@ -20,6 +20,6 @@ def fibonacci_raw(n: int) -> int:
     return fibonacci_raw(n - 1) + fibonacci_raw(n - 2)
 
 
-# n = int(input("Enter N:"))
-n = 45
+n = int(input("Enter N:"))
+# n = 45
 print(fibonacci(n))

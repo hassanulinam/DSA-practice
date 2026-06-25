@@ -16,7 +16,11 @@ def dailyTemperatures(temperatures: list[int]) -> list[int]:
     return result
 
 
-inputs = [[73, 74, 75, 71, 69, 72, 76, 73], [30, 40, 50, 60], [30, 60, 90]]
+inputs = [
+    [73, 74, 75, 71, 69, 72, 76, 73],
+    [30, 40, 50, 60],
+    [30, 60, 90],
+]
 for x in inputs:
     print(dailyTemperatures(x))
 
