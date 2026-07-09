@@ -15,6 +15,7 @@ def build_weighted_graph(
 def get_chepest_flight_price(
     n: int, graph: dict[int, list[tuple[int, int]]], k: int, src: int, dst: int
 ):
+    """Get cheapest flight cost with max k stops"""
     heap = [(0, src, k + 1)]  # price, current_node, remaining_k
     prices = [float("inf")] * n
     prices[src] = 0

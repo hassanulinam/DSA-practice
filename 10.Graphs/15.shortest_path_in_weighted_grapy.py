@@ -11,33 +11,26 @@ def generate_adjacency_list_from_weighted_edges(
     return graph
 
 
-def shortes_path(
-    src: int,
-    edges: list[tuple[int, int, int]],
-    n: int,
-    destination: int,
-) -> int:
+def shortest_path_to_dest(
+    src: int, dest: int, edges: list[tuple[int, int, int]], n: int
+) -> int | float:
     graph = generate_adjacency_list_from_weighted_edges(n, edges)
     dist = [float("inf")] * n
     dist[src] = 0
-    heap = [(0, src)]  # (distance, node)
+    heap = [(0, src)]
     while heap:
-        current_dist, node = heapq.heappop(heap)
-
-        if node == destination:
-            return current_dist
-
-        if current_dist > dist[node]:
+        currest_dist, node = heapq.heappop(heap)
+        if node == dest:
+            return currest_dist
+        if currest_dist > dist[node]:
             continue
+        for nb, weight in graph[node]:
+            new_dist = currest_dist + weight
+            if new_dist < dist[nb]:
+                dist[nb] = new_dist
+                heapq.heappush(heap, (new_dist, nb))
 
-        for neighbor, weight in graph[node]:
-            new_dist = current_dist + weight
-
-            if new_dist < dist[neighbor]:
-                dist[neighbor] = new_dist
-                heapq.heappush(heap, (new_dist, neighbor))
-
-    return -1
+    return dist[dest]
 
 
 # (u, v, w) → edge from u → v with weight w
@@ -47,5 +40,8 @@ edges = [
     (2, 1, 2),
     (1, 3, 1),
     (2, 3, 5),
+    (3, 4, 4),
+    (2, 4, 1),
 ]
-print(shortes_path(0, edges, 4, 1))
+# print(shortes_path(0, edges, 4, 1))
+print(shortest_path_to_dest(0, 4, edges, 5))
