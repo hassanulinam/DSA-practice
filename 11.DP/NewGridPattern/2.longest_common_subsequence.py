@@ -5,21 +5,17 @@ If there is no common subsequence, return 0."""
 
 class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        m, n = len(text1), len(text2)
-        dp = [[-1] * n for _ in range(m)]
+        cols, rows = len(text1), len(text2)
+        dp = [[0] * (cols + 1) for _ in range(rows + 1)]
 
-        def lcs(i: int, j: int) -> int:
-            if i >= m or j >= n:
-                return 0
-            if dp[i][j] != -1:
-                return dp[i][j]
-            if text1[i] == text2[j]:
-                dp[i][j] = 1 + lcs(i + 1, j + 1)
-            else:
-                dp[i][j] = max(lcs(i + 1, j), lcs(i, j + 1))
-            return dp[i][j]
+        for r in range(rows):
+            for c in range(cols):
+                if text1[c] == text2[r]:
+                    dp[r + 1][c + 1] = 1 + dp[r][c]
+                else:
+                    dp[r + 1][c + 1] = max(dp[r][c + 1], dp[r + 1][c])
 
-        return lcs(0, 0)
+        return dp[rows][cols]
 
 
 t1 = input("Enter Txt-1: ")
