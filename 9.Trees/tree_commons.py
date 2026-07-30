@@ -18,3 +18,13 @@ def build_tree(arr, i: int) -> Optional[TreeNode]:
     root.right = build_tree(arr, 2 * i + 2)
 
     return root
+
+
+def print_tree(root: TreeNode | None):
+    if not root:
+        print("NULL", end=", ")
+        return
+
+    print(root.val, end=", ")
+    print_tree(root.left)
+    print(root.right)

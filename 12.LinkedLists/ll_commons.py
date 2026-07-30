@@ -4,8 +4,8 @@ class ListNode:
         self.next: ListNode | None = next
 
 
-def input_ll():
-    arr = list(map(int, input("Enter list: ").split()))
+def input_ll(msg="Enter list: "):
+    arr = list(map(int, input(msg).split()))
     head = ListNode(arr[0])
     temp = head
     for el in arr[1:]:
