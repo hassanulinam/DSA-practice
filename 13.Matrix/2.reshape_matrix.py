@@ -1,23 +1,12 @@
 class Solution:
     def matrixReshape(self, mat: list[list[int]], r: int, c: int) -> list[list[int]]:
         m, n = len(mat), len(mat[0])
-        if m * n != r * c:
-            return mat
-
-        if m == r and n == c:
+        if (m * n != r * c) or (m == r and n == c):
             return mat
 
         ans = [[0] * c for _ in range(r)]
-
-        nr, nc = 0, 0
-        for i in range(m):
-            for j in range(n):
-                ans[nr][nc] = mat[i][j]
-                if nc + 1 < c:
-                    nc += 1
-                elif nc == c - 1:
-                    nr += 1
-                    nc = 0
+        for k in range(m * n):
+            ans[k // c][k % c] = mat[k // n][k % n]
         return ans
 
 
@@ -27,7 +16,8 @@ mat = [
     [7, 9, 0],
     [4, 1, 4],
     [7, 0, 9],
+    [1, 2, 3],
 ]
-sol = Solution().matrixReshape(mat, 3, 5)
+sol = Solution().matrixReshape(mat, 2, 9)
 for row in sol:
     print(*row)
