@@ -4,11 +4,11 @@ from typing import Optional
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
-        self.left: Optional[TreeNode] = left
-        self.right: Optional[TreeNode] = right
+        self.left: Optional["TreeNode"] = left
+        self.right: Optional["TreeNode"] = right
 
 
-def build_tree(arr, i: int) -> Optional[TreeNode]:
+def build_tree(arr, i: int) -> Optional["TreeNode"]:
     if i >= len(arr) or arr[i] is None:
         return None
 

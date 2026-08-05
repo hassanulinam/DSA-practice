@@ -6,7 +6,7 @@ from tree_commons import TreeNode, build_tree
 def inorder_list(root: TreeNode) -> list[int]:
     result = []
 
-    def dfs(node: Optional[TreeNode]) -> None:
+    def dfs(node: Optional["TreeNode"]) -> None:
         if not node:
             return
         dfs(node.left)
@@ -17,11 +17,11 @@ def inorder_list(root: TreeNode) -> list[int]:
     return result
 
 
-def kth_smallest(root: TreeNode, k: int) -> Optional[TreeNode]:
+def kth_smallest(root: TreeNode, k: int) -> Optional["TreeNode"]:
     ans = None
     ground_level = 0
 
-    def dfs(node: Optional[TreeNode]) -> None:
+    def dfs(node: Optional["TreeNode"]) -> None:
         nonlocal ans, ground_level
         if not node or ans:
             return

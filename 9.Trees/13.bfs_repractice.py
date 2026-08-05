@@ -48,7 +48,7 @@ def zigzag_level_order(root: TreeNode) -> list[list[int]]:
 def right_side_view(root: TreeNode) -> list[int]:
     result: list[int] = []
 
-    def dfs(node: Optional[TreeNode], level: int) -> None:
+    def dfs(node: Optional["TreeNode"], level: int) -> None:
         if not node:
             return
 

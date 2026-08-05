@@ -6,7 +6,7 @@ from tree_commons import TreeNode, build_tree
 def rhs(root: TreeNode) -> list[str]:
     ans = []
 
-    def dfs(node: Optional[TreeNode], level: int) -> None:
+    def dfs(node: Optional["TreeNode"], level: int) -> None:
         if not node:
             return
         if level == len(ans):

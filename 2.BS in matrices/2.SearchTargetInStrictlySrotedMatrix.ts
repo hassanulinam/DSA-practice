@@ -64,9 +64,30 @@ function searchInStrictlySortedMatrix(
   return [-1, -1];
 }
 
+function search2(mat: number[][], target: number): boolean {
+  const m = mat.length,
+    n = mat[0].length;
+  let low = 0,
+    high = m * n - 1;
+
+  while (low <= high) {
+    const mid = low + Math.floor((high - low) / 2);
+    const val = mat[Math.floor(mid / n)][mid % n];
+    if (val === target) {
+      return true;
+    }
+    if (val < target) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return false;
+}
+
 const strictlySortedMatrix = [
-  [1, 2, 3, 4, 5],
-  [6, 7, 8, 9, 10],
+  [1, 2, 3, 4],
+  [6, 7, 8, 9],
   [11, 12, 34, 45],
   [56, 67, 78, 89],
   [90, 91, 92, 93],
@@ -76,5 +97,6 @@ const strictlySortedMatrix = [
 ];
 
 const target = parseInt(question("Enter Target: "));
-const position = searchInStrictlySortedMatrix(strictlySortedMatrix, target);
-console.log({ position });
+// const position = searchInStrictlySortedMatrix(strictlySortedMatrix, target);
+// console.log({ position });
+console.log("Plain search: ", search2(strictlySortedMatrix, target));

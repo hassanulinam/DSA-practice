@@ -3,7 +3,7 @@ from typing import Optional
 from tree_commons import TreeNode, build_tree
 
 
-def lca(root: Optional[TreeNode], N1: int, N2: int) -> Optional[TreeNode]:
+def lca(root: Optional["TreeNode"], N1: int, N2: int) -> Optional["TreeNode"]:
     if not root:
         return None
     left = lca(root.left, N1, N2)

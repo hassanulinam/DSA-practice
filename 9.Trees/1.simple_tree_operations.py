@@ -7,7 +7,7 @@ from tree_commons import TreeNode, build_tree
 def pre_order(tree: TreeNode) -> list[int]:
     result = []
 
-    def traverse(node: Optional[TreeNode]) -> None:
+    def traverse(node: Optional["TreeNode"]) -> None:
         if not node:
             return
 
@@ -22,7 +22,7 @@ def pre_order(tree: TreeNode) -> list[int]:
 def in_order(tree: TreeNode) -> list[int]:
     result: list[int] = []
 
-    def traverse(node: Optional[TreeNode]) -> None:
+    def traverse(node: Optional["TreeNode"]) -> None:
         if not node:
             return
 
@@ -37,7 +37,7 @@ def in_order(tree: TreeNode) -> list[int]:
 def post_order(tree: TreeNode) -> list[int]:
     result: list[int] = []
 
-    def traverse(node: Optional[TreeNode]) -> None:
+    def traverse(node: Optional["TreeNode"]) -> None:
         if not node:
             return
 
@@ -49,14 +49,14 @@ def post_order(tree: TreeNode) -> list[int]:
     return result
 
 
-def max_depth(node: Optional[TreeNode]) -> int:
+def max_depth(node: Optional["TreeNode"]) -> int:
     if not node:
         return 0
 
     return 1 + max(max_depth(node.left), max_depth(node.right))
 
 
-def bfs(root: Optional[TreeNode]) -> list[int]:
+def bfs(root: Optional["TreeNode"]) -> list[int]:
     if not root:
         return []
 
@@ -73,7 +73,7 @@ def bfs(root: Optional[TreeNode]) -> list[int]:
     return result
 
 
-def level_order_bfs(root: Optional[TreeNode]) -> list[list[int]]:
+def level_order_bfs(root: Optional["TreeNode"]) -> list[list[int]]:
     if not root:
         return []
 
@@ -96,7 +96,7 @@ def level_order_bfs(root: Optional[TreeNode]) -> list[list[int]]:
     return result
 
 
-def is_same_tree(root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+def is_same_tree(root1: Optional["TreeNode"], root2: Optional["TreeNode"]) -> bool:
     if not root1 and not root2:
         return True
 
@@ -111,7 +111,7 @@ def is_same_tree(root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
     )
 
 
-def invert_tree_bottom_up(node: Optional[TreeNode]) -> Optional[TreeNode]:
+def invert_tree_bottom_up(node: Optional["TreeNode"]) -> Optional["TreeNode"]:
     if not node:
         return None
 
@@ -123,7 +123,7 @@ def invert_tree_bottom_up(node: Optional[TreeNode]) -> Optional[TreeNode]:
     return node
 
 
-def invert_tree_top_down(node: Optional[TreeNode]) -> None:
+def invert_tree_top_down(node: Optional["TreeNode"]) -> None:
     if not node:
         return
 
@@ -132,7 +132,7 @@ def invert_tree_top_down(node: Optional[TreeNode]) -> None:
     invert_tree_top_down(node.right)
 
 
-def is_mirror(a: Optional[TreeNode], b: Optional[TreeNode]) -> bool:
+def is_mirror(a: Optional["TreeNode"], b: Optional["TreeNode"]) -> bool:
     if not a and not b:
         return True
 

@@ -6,7 +6,7 @@ from tree_commons import TreeNode, build_tree
 def binary_tree_paths(root: TreeNode) -> list[str]:
     result: list[str] = []
 
-    def dfs(node: Optional[TreeNode], path: list[int]) -> None:
+    def dfs(node: Optional["TreeNode"], path: list[int]) -> None:
         if not node:
             return
 
@@ -26,7 +26,7 @@ def binary_tree_paths(root: TreeNode) -> list[str]:
 def path_sum2(root: TreeNode, target: int) -> list[list[int]]:
     result = []
 
-    def dfs(node: Optional[TreeNode], remaining: int, path: list[int]) -> None:
+    def dfs(node: Optional["TreeNode"], remaining: int, path: list[int]) -> None:
         if not node:
             return
 
@@ -47,7 +47,7 @@ def path_sum3(root: TreeNode, target: int) -> int:
     cnt = 0
     sum_freqs = {0: 1}
 
-    def dfs(node: Optional[TreeNode], current_sum: int) -> None:
+    def dfs(node: Optional["TreeNode"], current_sum: int) -> None:
         nonlocal cnt
         if not node:
             return
@@ -64,7 +64,7 @@ def path_sum3(root: TreeNode, target: int) -> int:
     return cnt
 
 
-def LCA(root: Optional[TreeNode], N1: int, N2: int) -> Optional[TreeNode]:
+def LCA(root: Optional["TreeNode"], N1: int, N2: int) -> Optional["TreeNode"]:
     if not root:
         return None
 

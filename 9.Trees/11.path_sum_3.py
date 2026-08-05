@@ -26,7 +26,7 @@ def path_sum_3(root: TreeNode, target: int) -> int:
     total = 0
     sum_freqs = {0: 1}
 
-    def dfs(node: Optional[TreeNode], current_sum: int):
+    def dfs(node: Optional["TreeNode"], current_sum: int):
         nonlocal total
         if not node:
             return

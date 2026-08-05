@@ -5,7 +5,7 @@ from tree_commons import TreeNode, build_tree
 
 def is_balanced_tree(root: TreeNode) -> bool:
 
-    def dfs(node: Optional[TreeNode]) -> int:
+    def dfs(node: Optional["TreeNode"]) -> int:
         if not node:
             return False
 

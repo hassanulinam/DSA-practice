@@ -8,7 +8,7 @@ from typing import Optional
 from tree_commons import TreeNode, build_tree
 
 
-def no_of_good_nodes(node: Optional[TreeNode], pivot: int) -> int:
+def no_of_good_nodes(node: Optional["TreeNode"], pivot: int) -> int:
     if not node:
         return 0
 

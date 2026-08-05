@@ -3,7 +3,7 @@ from typing import Optional
 from tree_commons import TreeNode, build_tree
 
 
-def check_path(root: Optional[TreeNode], path: list[int], i: int) -> bool:
+def check_path(root: Optional["TreeNode"], path: list[int], i: int) -> bool:
     if not root:
         return False
     if i >= len(path) or root.val != path[i]:

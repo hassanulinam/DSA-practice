@@ -6,7 +6,7 @@ from tree_commons import TreeNode, build_tree
 def serialize_tree_preorder(root: TreeNode) -> str:
     elements = []
 
-    def dfs(node: Optional[TreeNode]):
+    def dfs(node: Optional["TreeNode"]):
         if not node:
             elements.append(None)
             return
@@ -18,11 +18,11 @@ def serialize_tree_preorder(root: TreeNode) -> str:
     return ",".join(map(lambda x: "null" if x is None else str(x), elements))
 
 
-def deserialize_tree_preorder2(s: str) -> Optional[TreeNode]:
+def deserialize_tree_preorder2(s: str) -> Optional["TreeNode"]:
     lst = s.split(",")
     i = 0
 
-    def dfs() -> Optional[TreeNode]:
+    def dfs() -> Optional["TreeNode"]:
         nonlocal i
         if lst[i] == "null":
             i += 1

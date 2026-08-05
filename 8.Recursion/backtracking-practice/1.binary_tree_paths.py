@@ -11,7 +11,7 @@ class TreeNode:
 
 
 class Solution:
-    def binaryTreePaths(self, root: Optional[TreeNode]) -> list[str]:
+    def binaryTreePaths(self, root: Optional["TreeNode"]) -> list[str]:
         result: list[str] = []
 
         if not root:

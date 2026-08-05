@@ -6,7 +6,7 @@ from tree_commons import TreeNode, build_tree
 def diameter(root: TreeNode) -> int:
     dm = 0
 
-    def dfs(node: Optional[TreeNode]) -> int:
+    def dfs(node: Optional["TreeNode"]) -> int:
         nonlocal dm
         if not node:
             return 0

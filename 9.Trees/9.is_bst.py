@@ -3,7 +3,7 @@ from typing import Optional
 from tree_commons import TreeNode, build_tree
 
 
-def is_bst(node: Optional[TreeNode], low: float, high: float) -> bool:
+def is_bst(node: Optional["TreeNode"], low: float, high: float) -> bool:
     if not node:
         return True
 

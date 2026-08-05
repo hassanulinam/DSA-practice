@@ -6,7 +6,7 @@ from tree_commons import TreeNode, build_tree
 def max_path_sum(root: TreeNode) -> int:
     max_sum = root.val
 
-    def dfs(node: Optional[TreeNode]) -> int:
+    def dfs(node: Optional["TreeNode"]) -> int:
         nonlocal max_sum
         if not node:
             return 0
