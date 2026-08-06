@@ -9,13 +9,13 @@ from typing import Optional
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
-        self.next: Optional[ListNode] = next
+        self.next: Optional["ListNode"] = next
 
 
 class Solution:
     def addTwoNumbers(
-        self, l1: Optional[ListNode], l2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+        self, l1: Optional["ListNode"], l2: Optional["ListNode"]
+    ) -> Optional["ListNode"]:
         ans = ListNode(0)
         dummy = ans
         carry = 0

@@ -6,7 +6,7 @@ from ll_commons import ListNode, input_ll, print_ll
 
 # WIP
 class Solution:
-    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+    def reverseKGroup(self, head: Optional["ListNode"], k: int) -> Optional["ListNode"]:
         if k == 0 or not head or not head.next:
             return head
         n1 = head

@@ -6,7 +6,7 @@ from ll_commons import ListNode, input_ll, print_ll
 
 
 class Solution:
-    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def deleteDuplicates(self, head: Optional["ListNode"]) -> Optional["ListNode"]:
         if not head:
             return head
         dummy = ListNode(0, head)

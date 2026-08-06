@@ -7,7 +7,7 @@ from ll_commons import ListNode, input_ll, print_ll
 
 
 class Solution:
-    def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+    def swapNodes(self, head: Optional["ListNode"], k: int) -> Optional["ListNode"]:
         dummy = ListNode(0, head)
         slow = fast = dummy
         for _ in range(k):

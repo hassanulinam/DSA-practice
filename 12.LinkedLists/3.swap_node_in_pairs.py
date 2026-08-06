@@ -5,7 +5,7 @@ from ll_commons import ListNode, input_ll, print_ll
 
 
 class Solution:
-    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def swapPairs(self, head: Optional["ListNode"]) -> Optional["ListNode"]:
         if not head or not head.next:
             return head
         n1 = head

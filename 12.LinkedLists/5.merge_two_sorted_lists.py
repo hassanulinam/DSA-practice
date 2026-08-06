@@ -6,8 +6,8 @@ from ll_commons import ListNode, input_ll, print_ll
 
 class Solution:
     def mergeTwoLists(
-        self, list1: Optional[ListNode], list2: Optional[ListNode]
-    ) -> Optional[ListNode]:
+        self, list1: Optional["ListNode"], list2: Optional["ListNode"]
+    ) -> Optional["ListNode"]:
         dummy = ListNode(0)
         temp = dummy
         while list1 and list2:
