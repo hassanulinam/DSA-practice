@@ -21,19 +21,14 @@ class Solution:
     def connect(self, root: Optional["Node"]) -> Optional["Node"]:
         if not root:
             return root
-        q = deque([root])
-        while q:
-            size = len(q)
-            prev: Node | None = None
-            for _ in range(size):
-                node = q.popleft()
-                if prev:
-                    prev.next = node
-                prev = node
+        vertical = root
+        while vertical.left:
+            horizontal = vertical
+            while horizontal:
+                horizontal.left.next = horizontal.right
+                if horizontal.next:
+                    horizontal.right.next = horizontal.next.left
+                horizontal = horizontal.next
 
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-
+            vertical = vertical.left
         return root
