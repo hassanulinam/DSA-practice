@@ -2,26 +2,11 @@
 
 from typing import Optional
 
-from tree_commons import TreeNode, build_tree
+from tree_commons import TreeNode, build_tree, print_tree
 
 
-class Solution:
-    def preorderTraversal(self, root: Optional["TreeNode"]) -> list[int]:
-        if not root:
-            return []
-        result = []
-        stack = [root]
-        while stack:
-            node = stack.pop()
-            result.append(node.val)
-            if node.right:
-                stack.append(node.right)
-            if node.left:
-                stack.append(node.left)
-
-        return result
-
-    def recursivePreOrder(self, root: Optional["TreeNode"]) -> list[int]:
+class RecursiveSolution:
+    def preorder(self, root: Optional["TreeNode"]) -> list[int]:
         result = []
 
         def dfs(node: Optional["TreeNode"]):
@@ -34,61 +19,81 @@ class Solution:
         dfs(root)
         return result
 
-    def inorderTraversal(self, root: Optional["TreeNode"]) -> list[int]:
-        if not root:
-            return []
-        node, stack, output = root, [], []
+    def inorder(self, root: Optional["TreeNode"]) -> list[int]:
+        result = []
+
+        def dfs(node: Optional["TreeNode"]):
+            if not node:
+                return
+            dfs(node.left)
+            result.append(node.val)
+            dfs(node.right)
+
+        dfs(root)
+        return result
+
+    def postorder(self, root: Optional["TreeNode"]) -> list[int]:
+        result = []
+
+        def dfs(node: Optional["TreeNode"]):
+            if not node:
+                return
+            dfs(node.left)
+            dfs(node.right)
+            result.append(node.val)
+
+        dfs(root)
+        return result
+
+
+class StackSolution:
+    def preorder(self, root: TreeNode) -> list[int]:
+        stack = [root]
+        result = []
+
+        while stack:
+            node = stack.pop()
+            result.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+        return result
+
+    def inorder(self, root: TreeNode) -> list[int]:
+        stack: list[TreeNode] = []
+        result: list[int] = []
+        node = root
         while node or stack:
             while node:
                 stack.append(node)
                 node = node.left
             node = stack.pop()
-            output.append(node.val)
-            node = node.right
-        return output
-
-    def recursiveInOrder(self, root: Optional["TreeNode"]) -> list[int]:
-        result = []
-
-        def dfs(node: Optional["TreeNode"]):
-            if not node:
-                return
-            dfs(node.left)
             result.append(node.val)
-            dfs(node.right)
-
-        dfs(root)
+            node = node.right
         return result
 
-    def postorderTraversal(self, root: Optional["TreeNode"]) -> list[int]:
-        if not root:
-            return []
-        stack, output = [root], []
+    def postorder(self, root: TreeNode) -> list[int]:
+        stack = [root]
+        result = []
         while stack:
             node = stack.pop()
-            output.append(node.val)
+            result.append(node.val)
             if node.left:
                 stack.append(node.left)
             if node.right:
                 stack.append(node.right)
-        return output[::-1]
-
-    def recursivePostOrder(self, root: Optional["TreeNode"]) -> list[int]:
-        result = []
-
-        def dfs(node: Optional["TreeNode"]):
-            if not node:
-                return
-            dfs(node.left)
-            dfs(node.right)
-            result.append(node.val)
-
-        dfs(root)
-        return result
+        return result[::-1]
 
 
 arr = list(map(int, input("Enter tree nodes: ").split()))
 root = build_tree(arr, 0)
-sol = Solution()
-print(*sol.postorderTraversal(root))
-print(*sol.recursivePostOrder(root))
+print("Given Tree: ")
+print_tree(root)
+print("\n----")
+
+recur = RecursiveSolution()
+stack = StackSolution()
+if root:
+    print(*stack.postorder(root))
+    print(*recur.postorder(root))

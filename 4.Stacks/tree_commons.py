@@ -27,9 +27,9 @@ def build_tree(arr, i: int) -> Optional["TreeNode"]:
 
 def print_tree(root: TreeNode | None):
     if not root:
-        print("NULL", end=", ")
+        print("🔴", end=", ")
         return
 
     print(root.val, end=", ")
     print_tree(root.left)
-    print(root.right)
+    print_tree(root.right)
